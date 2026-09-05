@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jarif's Classroom | Complete Academic Preparation Program</title>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://unpkg.com">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================
+            PREMIUM 3D & ANIMATED THEME FOR JARIF'S CLASSROOM
+            ========================================================== */
+        :root {
+            --primary-glow: #00f2fe;
+            --secondary-glow: #4facfe;
+            --accent-purple: #7000ff;
+            --bg-dark: #000000;
+            --card-bg: rgba(10, 15, 30, 0.82);
+            --border-color: rgba(0, 242, 254, 0.25);
+            --font-main: 'Poppins', 'Hind Siliguri', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: #ffffff;
+            overflow-x: hidden;
+            background: linear-gradient(-45deg, #000000, #0a0a1a, #120024, #001219, #1b0033, #051923, #000000);
+            background-size: 500% 500%;
+            animation: gradientShift 15s ease infinite;
+            will-change: background-position;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            20% { background-position: 50% 100%; }
+            40% { background-position: 100% 50%; }
+            60% { background-position: 50% 0%; }
+            80% { background-position: 25% 75%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* SCROLL PROGRESS BAR */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #00f2fe, #4facfe, #ffb703, #d63384);
+            z-index: 9999;
+            width: 0%;
+            transition: width 0.1s ease-out;
+            box-shadow: 0 0 12px #00f2fe;
+        }
+
+        /* PAGE LOADER */
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000;
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        /* DYNAMIC 3D FLOATING BLOB BACKGROUND */
+        .blob {
+            position: fixed;
+            top: 15%;
+            left: -10%;
+            width: 650px;
+            height: 650px;
+            background: radial-gradient(circle, rgba(0, 242, 254, 0.15) 0%, rgba(112, 0, 255, 0.1) 50%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+            pointer-events: none;
+            animation: floatBlob 12s infinite alternate ease-in-out;
+            filter: blur(50px);
+            will-change: transform;
+        }
+
+        @keyframes floatBlob {
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            100% { transform: translate(160px, 100px) scale(1.25) rotate(180deg); }
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.9) !important;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-glow) !important;
+            text-shadow: 0 0 12px rgba(0, 242, 254, 0.8);
+        }
+
+        /* GLASSMORPHISM CARD WITH 3D MOTION */
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--border-color);
+            border-radius: 22px;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, border-color 0.3s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            will-change: transform;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px) scale(1.015);
+            box-shadow: 0 25px 50px rgba(0, 242, 254, 0.25), 0 0 25px rgba(112, 0, 255, 0.2);
+            border-color: rgba(0, 242, 254, 0.6);
+        }
+
+        /* SHINE & GLOW BUTTONS */
+        .btn-glow {
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            color: #000;
+            font-weight: 700;
+            border: none;
+            box-shadow: 0 0 25px rgba(0, 242, 254, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .btn-glow:hover {
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+            box-shadow: 0 0 35px rgba(0, 242, 254, 0.9);
+            color: #000;
+            transform: scale(1.06) translateY(-3deg);
+        }
+
+        .shine-btn {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shine-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(60deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+            transform: rotate(30deg);
+            transition: all 0.6s ease;
+        }
+
+        .shine-btn:hover::after {
+            left: 100%;
+        }
+
+        /* HERO IMAGE & NO OVERLAP FIX */
+        .hero-img-wrapper {
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .hero-img-motion {
+            animation: heroFloat 5s ease-in-out infinite alternate;
+            will-change: transform;
+        }
+
+        @keyframes heroFloat {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-12px) rotate(0.8deg); }
+        }
+
+        .hero-card-badge {
+            position: relative;
+            margin-top: 15px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            z-index: 10;
+            background: rgba(10, 15, 30, 0.95);
+            border: 1px solid rgba(0, 242, 254, 0.4);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+            padding: 12px;
+        }
+
+        .sharp-img {
+            object-fit: cover;
+        }
+
+        /* HEADING LINE & GRADIENT TEXT */
+        .heading-line {
+            width: 90px;
+            height: 4px;
+            border-radius: 2px;
+            margin-top: 12px;
+            background: linear-gradient(90deg, #00f2fe, #7000ff);
+        }
+
+        .text-gradient {
+            background: linear-gradient(90deg, #ffffff, #00f2fe, #4facfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* COURSE CARDS INDIVIDUAL COLORS */
+        .course-card {
+            border-radius: 18px;
+            overflow: hidden;
+            transition: all 0.35s ease;
+        }
+
+        .course-theme-c { border-top: 5px solid #00f2fe !important; }
+        .course-theme-dsa { border-top: 5px solid #a29bfe !important; }
+        .course-theme-algo { border-top: 5px solid #00b894 !important; }
+        .course-theme-m101 { border-top: 5px solid #fdcb6e !important; }
+        .course-theme-m102 { border-top: 5px solid #e17055 !important; }
+        .course-theme-discrete { border-top: 5px solid #e84393 !important; }
+        .course-theme-linear { border-top: 5px solid #0984e3 !important; }
+        .course-theme-phy101 { border-top: 5px solid #00cec9 !important; }
+        .course-theme-phy102 { border-top: 5px solid #ff7675 !important; }
+        .course-theme-circuit1 { border-top: 5px solid #fd79a8 !important; }
+        .course-theme-circuit2 { border-top: 5px solid #6c5ce7 !important; }
+        .course-theme-diff-int { border-top: 5px solid #1dd1a1 !important; }
+        .course-theme-ode-pde { border-top: 5px solid #ff6b6b !important; }
+
+        /* FLOATING WHATSAPP & BACK TO TOP */
+        .floating-wa {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            z-index: 999;
+            box-shadow: 0 0 25px rgba(37, 211, 102, 0.6);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .floating-wa:hover {
+            transform: scale(1.15) rotate(10deg);
+            color: white;
+            box-shadow: 0 0 35px rgba(37, 211, 102, 0.95);
+        }
+
+        #backToTop {
+            position: fixed;
+            bottom: 95px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            display: none;
+            z-index: 998;
+            transition: all 0.3s ease;
+        }
+
+        /* YOUTUBE CARD STYLE */
+        .yt-channel-card {
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.15), rgba(10, 15, 30, 0.9));
+            border: 1px solid rgba(255, 0, 0, 0.4);
+            border-radius: 20px;
+            padding: 40px 20px;
+            transition: all 0.3s ease;
+        }
+        .yt-channel-card:hover {
+            border-color: rgba(255, 0, 0, 0.8);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="80">
+
+    <div id="scroll-progress"></div>
+
+    <div id="loader">
+        <div class="spinner-border text-info" style="width: 3.5rem; height: 3.5rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <h5 class="mt-3 text-white fw-bold">Jarif's Classroom Loading...</h5>
+    </div>
+
+    <div class="blob"></div>
+
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-info fs-4 d-flex align-items-center" href="#hero">
+                <img src="Jarifs classroom.jpg" alt="Jarif's Classroom Logo" class="rounded-circle me-2 sharp-img border border-2 border-info" width="45" height="45">
+                Jarif's Classroom
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-lg-2 fw-semibold align-items-center">
+                    <li class="nav-item"><a class="nav-link active" href="#hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Founder Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#payment-steps">Admission</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#youtube-section">YouTube Channel</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Success Stories</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#routine">Routine</a></li>
+                    <li class="nav-item ms-lg-2">
+                        <a href="https://wa.me/8801798509723" target="_blank" class="btn btn-success btn-sm rounded-pill px-3 py-2 fw-bold shine-btn">
+                            <i class="bi bi-whatsapp me-1"></i> WhatsApp
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero" class="min-vh-100 d-flex align-items-center pt-5 position-relative">
+        <div class="container py-5 z-2">
+            <div class="row align-items-center flex-column-reverse flex-lg-row g-5">
+                <div class="col-lg-7 text-center text-lg-start" data-aos="fade-right" data-aos-duration="800">
+                    
+                    <div class="p-2 px-3 rounded-pill d-inline-flex align-items-center mb-3 text-info fw-bold fs-6 glass-card">
+                        <i class="bi bi-stars text-warning me-2 fs-5"></i> One Platform. Everything You Need. All Semester Preparation.
+                    </div>
+
+                    <div class="d-flex flex-wrap gap-2 justify-content-center justify-content-lg-start mb-3">
+                        <span class="badge bg-primary-subtle text-info border border-info px-3 py-2 rounded-pill fs-6 fw-bold">
+                            <i class="bi bi-rocket-takeoff-fill me-1 text-warning"></i> Starting: 1 September, 2026
+                        </span>
+                        <span class="badge bg-success-subtle text-success border border-success px-3 py-2 rounded-pill fs-6 fw-bold">
+                            <i class="bi bi-check-circle-fill me-1"></i> Course Fee: ৳799 Each
+                        </span>
+                    </div>
+
+                    <div class="alert bg-dark border border-warning text-warning p-2 px-3 rounded-3 mb-4 text-center text-lg-start fs-6 fw-semibold shadow">
+                        <i class="bi bi-info-circle-fill me-2"></i> তুমি চাইলে course শুরু হওয়ার আগেই বা course শুরু হওয়ার পরেও যেকোনো সময় ভর্তি হতে পারবে।
+                    </div>
+
+                    <div class="p-3 p-md-4 rounded-4 mb-4 glass-card border-gradient shadow-lg" data-aos="zoom-in" data-aos-delay="150">
+                        <h2 class="fs-4 fs-md-3 fw-bold text-warning mb-2">
+                            <i class="bi bi-mortarboard-fill me-2"></i> All Semester Academic Preparation Program
+                        </h2>
+                        <p class="fs-5 text-white fw-medium lh-base mb-0">
+                            <strong>CSE, EEE, SWE, CIS, Civil, Textile, ICE, ITM, English, BBA</strong> সহ Engineering ও অন্যান্য Department-এর All Semester students-দের জন্য শুরু হচ্ছে Complete Academic Preparation Program।
+                        </p>
+                    </div>
+
+                    <p class="lead text-white-50 mb-4 pe-lg-4 fs-6 fw-normal lh-base">
+                        বাংলাদেশের যেকোনো Public & Private Varsity-এর শিক্ষার্থীদের জন্য All Semester-এর সেরা অনলাইন লার্নিং প্ল্যাটফর্ম। প্রতিটি কোর্সে থাকবে লাইভ ইন্টারেক্টিভ ক্লাস, সাজানো পিডিএফ নোটস, অ্যাসাইনমেন্ট সলিউশন, এক্সাম প্রেপারেশন এবং ২৪/৭ মেন্টর সাপোর্ট।
+                    </p>
+                    
+                    <div class="d-flex flex-wrap gap-2 mb-4 justify-content-center justify-content-lg-start">
+                        <span class="badge bg-dark border border-secondary text-white px-3 py-2"><i class="bi bi-play-btn-fill text-info me-1"></i> Live Interactive Classes</span>
+                        <span class="badge bg-dark border border-secondary text-white px-3 py-2"><i class="bi bi-file-earmark-pdf-fill text-danger me-1"></i> Exclusive PDF Notes</span>
+                        <span class="badge bg-dark border border-secondary text-white px-3 py-2"><i class="bi bi-journal-check text-success me-1"></i> Final Exam Suggestions</span>
+                        <span class="badge bg-dark border border-secondary text-white px-3 py-2"><i class="bi bi-whatsapp text-success me-1"></i> VIP Private Group</span>
+                    </div>
+
+                    <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start align-items-center mb-5">
+                        <a href="https://forms.gle/Ad2phm1ivkon5tiu9" target="_blank" class="btn btn-glow btn-lg px-4 rounded-pill fw-bold shine-btn">
+                            <i class="bi bi-pencil-square me-2"></i> Enroll Now (Google Form)
+                        </a>
+                        <a href="#payment-steps" class="btn btn-outline-warning btn-lg px-4 rounded-pill fw-bold">
+                            <i class="bi bi-wallet2 me-2"></i> Payment Details (01798509723)
+                        </a>
+                    </div>
+
+                    <div class="row g-3 text-center text-lg-start pt-3 border-top border-secondary">
+                        <div class="col-3">
+                            <h3 class="fw-bold text-info mb-0">13</h3>
+                            <small class="text-white-50">Main Courses</small>
+                        </div>
+                        <div class="col-3">
+                            <h3 class="fw-bold text-warning mb-0">৳ 799</h3>
+                            <small class="text-white-50">Per Course</small>
+                        </div>
+                        <div class="col-3">
+                            <h3 class="fw-bold text-success mb-0">5000+</h3>
+                            <small class="text-white-50">Students</small>
+                        </div>
+                        <div class="col-3">
+                            <h3 class="fw-bold text-info mb-0">100%</h3>
+                            <small class="text-white-50">Satisfaction</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 text-center" data-aos="fade-left" data-aos-duration="800">
+                    <div class="hero-img-wrapper position-relative d-inline-block hero-img-motion w-100">
+                        <img src="jafrul islam jarif.png" alt="Md. Jafrul Islam Jarif" class="img-fluid rounded-4 shadow-lg sharp-img border border-2 border-info w-100" style="max-height: 480px;">
+                        <div class="hero-card-badge p-3">
+                            <img src="Jarifs classroom.jpg" alt="Jarif's Classroom Logo" class="rounded-circle sharp-img border border-1 border-info me-2" width="48" height="48">
+                            <div class="text-start">
+                                <span class="d-block fw-bold text-white fs-6 lh-sm">Jarif's Classroom</span>
+                                <small class="text-info fw-bold">CEO & Lead Academic Mentor</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-5 text-white">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="badge bg-info text-dark px-3 py-2 rounded-pill fs-6 fw-bold mb-2">Leadership & Vision</span>
+                <h2 class="fw-bold display-5 text-gradient">Founder & CEO Profile</h2>
+                <p class="text-white-50 fs-6">Academic Excellence, STEM Mentorship & Innovation</p>
+                <div class="heading-line mx-auto"></div>
+            </div>
+
+            <div class="row justify-content-center g-4">
+                <div class="col-lg-10" data-aos="flip-up" data-aos-duration="800">
+                    <div class="glass-card p-4 p-md-5 border-top border-4 border-info">
+                        <div class="row align-items-center">
+                            <div class="col-md-4 text-center mb-4 mb-md-0">
+                                <img src="jafrul islam jarif.png" alt="Md. Jafrul Islam Jarif" class="img-fluid rounded-circle border border-3 border-info shadow-lg sharp-img mb-3" style="width: 180px; height: 180px;">
+                                <h4 class="fw-bold text-white mb-1">Md. Jafrul Islam Jarif</h4>
+                                <p class="text-info mb-0 fw-semibold">Founder & CEO — Jarif's Classroom</p>
+                            </div>
+                            <div class="col-md-8">
+                                <h5 class="fw-bold text-warning mb-3"><i class="bi bi-award-fill me-2"></i> Academic Mentorship & Qualifications</h5>
+                                <div class="row g-3">
+                                    <div class="col-sm-6"><p class="mb-2 text-white"><i class="bi bi-check-circle-fill text-success me-2"></i> Lead STEM & Engineering Mentor</p></div>
+                                    <div class="col-sm-6"><p class="mb-2 text-white"><i class="bi bi-check-circle-fill text-success me-2"></i> Competitive Programmer</p></div>
+                                    <div class="col-sm-6"><p class="mb-2 text-white"><i class="bi bi-check-circle-fill text-success me-2"></i> AI Undergraduate — DIU</p></div>
+                                    <div class="col-sm-6"><p class="mb-2 text-white"><i class="bi bi-check-circle-fill text-success me-2"></i> Former Josephite Alumnus</p></div>
+                                    <div class="col-sm-6"><p class="mb-2 text-white"><i class="bi bi-check-circle-fill text-success me-2"></i> Math Olympiad Champion</p></div>
+                                    <div class="col-sm-6"><p class="mb-2 text-white"><i class="bi bi-check-circle-fill text-success me-2"></i> Public Speaker</p></div>
+                                    <div class="col-sm-6"><p class="mb-2 text-white"><i class="bi bi-check-circle-fill text-success me-2"></i> 150+ Math Video Content Creator</p></div>
+                                    <div class="col-sm-6"><p class="mb-2 text-white"><i class="bi bi-check-circle-fill text-success me-2"></i> University Academic Mentor</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="courses" class="py-5 text-white">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-down">
+                <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fs-6 fw-bold mb-2">
+                    <i class="bi bi-calendar3 me-1"></i> All Semester Preparation Courses
+                </span>
+                <h2 class="fw-bold display-5 text-gradient">Complete Academic Preparation Courses</h2>
+                <p class="text-white-50 fs-6">
+                    CSE, EEE, SWE, CIS, Civil, Textile, ICE, ITM, English, BBA সহ সকল ডিপার্টমেন্টের অল সেমিস্টার শিক্ষার্থীদের জন্য।
+                </p>
+                <div class="badge bg-info text-dark px-4 py-2 fs-6 rounded-pill fw-bold mb-3 shadow">
+                    🔥 Special Course Fee: ৳799 / Course
+                </div>
+                <div class="heading-line mx-auto"></div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-12 col-md-6 col-lg-4" data-aos="slide-up">
+                    <div class="card glass-card course-card course-theme-c h-100 p-3">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="badge bg-info text-dark fw-bold px-3 py-1 rounded-pill">Programming</span>
+                                    <span class="badge bg-warning text-dark fw-bold fs-6">৳799</span>
+                                </div>
+                                <h4 class="card-title fw-bold text-white mb-3">1. C / Structured Programming / PPS</h4>
+                                <p class="text-white-50 small mb-3">C syntax, Control structures, Loops, Functions, Arrays, Pointers & Problem Solving.</p>
+                            </div>
+                            <a href="https://forms.gle/Ad2phm1ivkon5tiu9" target="_blank" class="btn btn-outline-info w-100 rounded-pill fw-bold shine-btn">Enroll Now (৳799)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4" data-aos="slide-up" data-aos-delay="100">
+                    <div class="card glass-card course-card course-theme-dsa h-100 p-3">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="badge bg-primary fw-bold px-3 py-1 rounded-pill">Core CS</span>
+                                    <span class="badge bg-warning text-dark fw-bold fs-6">৳799</span>
+                                </div>
+                                <h4 class="card-title fw-bold text-white mb-3">2. DSA (Data Structure)</h4>
+                                <p class="text-white-50 small mb-3">Arrays, Linked Lists, Stacks, Queues, Trees, Graphs, Hashing & Recursion.</p>
+                            </div>
+                            <a href="https://forms.gle/Ad2phm1ivkon5tiu9" target="_blank" class="btn btn-outline-primary w-100 rounded-pill fw-bold shine-btn">Enroll Now (৳799)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4" data-aos="slide-up" data-aos-delay="200">
+                    <div class="card glass-card course-card course-theme-algo h-100 p-3">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="badge bg-success fw-bold px-3 py-1 rounded-pill">Algorithms</span>
+                                    <span class="badge bg-warning text-dark fw-bold fs-6">৳799</span>
+                                </div>
+                                <h4 class="card-title fw-bold text-white mb-3">3. Algorithm</h4>
+                                <p class="text-white-50 small mb-3">Sorting, Searching, Greedy Method, DP, Graph Traversal (BFS/DFS).</p>
+                            </div>
+                            <a href="https://forms.gle/Ad2phm1ivkon5tiu9" target="_blank" class="btn btn-outline-success w-100 rounded-pill fw-bold shine-btn">Enroll Now (৳799)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4" data-aos="slide-up" data-aos-delay="100">
+                    <div class="card glass-card course-card course-theme-m101 h-100 p-3">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="badge bg-warning text-dark fw-bold px-3 py-1 rounded-pill">Mathematics</span>
+                                    <span class="badge bg-warning text-dark fw-bold fs-6">৳799</span>
+                                </div>
+                                <h4 class="card-title fw-bold text-white mb-3">4. Math 101 (Differential & Integral Calculus)</h4>
+                                <p class="text-white-50 small mb-3">Limits, Differentiation, Integration, Applications & Problem Solving.</p>
+                            </div>
+                            <a href="https://forms.gle/Ad2phm1ivkon5tiu9" target="_blank" class="btn btn-outline-warning w-100 rounded-pill fw-bold shine-btn">Enroll Now (৳799)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4" data-aos="slide-up" data-aos-delay="150">
+                    <div class="card glass-card course-card course-theme-m102 h-100 p-3">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="badge bg-danger fw-bold px-3 py-1 rounded-pill">Mathematics</span>
+                                    <span class="badge bg-warning text-dark fw-bold fs-6">৳799</span>
+                                </div>
+                                <h4 class="card-title fw-bold text-white mb-3">5. Math 102 (Linear Algebra & Complex Variables)</h4>
+                                <p class="text-white-50 small mb-3">Matrices, Determinants, Vector Spaces, Complex Functions & Integration.</p>
+                            </div>
+                            <a href="https://forms.gle/Ad2phm1ivkon5tiu9" target="_blank" class="btn btn-outline-danger w-100 rounded-pill fw-bold shine-btn">Enroll Now (৳799)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4" data-aos="slide-up" data-aos-delay="200">
+                    <div class="card glass-card course-card course-theme-discrete h-100 p-3">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="badge bg-info text-dark fw-bold px-3 py-1 rounded-pill">Discrete</span>
+                                    <span class="badge bg-warning text-dark fw-bold fs-6">৳799</span>
+                                </div>
+                                <h4 class="card-title fw-bold text-white mb-3">6. Discrete Mathematics</h4>
+                                <p class="text-white-50 small mb-3">Set Theory, Logic, Proofs, Graph Theory, Combinatorics & Functions.</p>
+                            </div>
+                            <a href="https://forms.gle/Ad2phm1ivkon5tiu9" target="_blank" class="btn btn-outline-info w-100 rounded-pill fw-bold shine-btn">Enroll Now (৳799)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4" data-aos="slide-up" data-aos-delay="100">
+                    <div class="card glass-card course-card course-theme-linear h-100 p-3">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="badge bg-primary fw-bold px-3 py-1 rounded-pill">Mathematics</span>
+                                    <span class="badge bg-warning text-dark fw-bold fs-6">৳799</span>
+                                </div>
+                                <h4 class="card-title fw-bold text-white mb-3">7. Linear Algebra & Matrices</h4>
+                                <p class="text-white-50 small mb-3">Eigenvalues, Eigenvectors, System of Linear Equations & Transformations.</p>
+                            </div>
+                            <a href="https://forms.gle/Ad2phm1ivkon5tiu9" target="_blank" class="btn btn-outline-primary w-100 rounded-pill fw-bold shine-btn">Enroll Now (৳799)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4" data-aos="slide-up" data-aos-delay="150">
+                    <div class="card glass-card course-card course-theme-phy101 h-100 p-3">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="badge bg-success fw-bold px-3 py-1 rounded-pill">Physics</span>
+                                    <span class="badge bg-warning text-dark fw-bold fs-6">৳799</span>
+                                </div>
+                                <h4 class="card-title fw-bold text-white mb-3">8. Physics 101 (Mechanics & Waves)</h4>
+                                <p class="text-white-50 small mb-3">Newtonian Mechanics, Rotational Motion, Gravitation, Waves & Oscillations.</p>
+                            </div>
+                            <a href="https://forms.gle/Ad2phm1ivkon5tiu9" target="_blank" class="btn btn-outline-success w-100 rounded-pill fw-bold shine-btn">Enroll Now (৳799)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4" data-aos="slide-up" data-aos-delay="200">
+                    <div class="card glass-card course-card course-theme-phy102 h-100 p-3">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="badge bg-danger fw-bold px-3 py-1 rounded-pill">Physics</span>
+                                    <span class="badge bg-warning text-dark fw-bold fs-6">৳799</span>
+                                </div>
+                                <h4 class="card-title fw-bold text-white mb-3">9. Physics 102 (Electricity, Magnetism & Optics)</h4>
+                                <p class="text-white-50 small mb-3">Electromagnetism, Maxwell's Equations, Wave Optics, Interference & Diffraction.</p>
+                            </div>
+                            <a href="https://forms.gle/Ad2phm1ivkon5tiu9" target="_blank" class="btn btn-outline-danger w-100 rounded-pill fw-bold shine-btn">Enroll Now (৳799)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4" data-aos="slide-up" data-aos-delay="100">
+                    <div class="card glass-card course-card course-theme-circuit1 h-100 p-3">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="badge bg-warning text-dark fw-bold px-3 py-1 rounded-pill">EEE</span>
+                                    <span class="badge bg-warning text-dark fw-bold fs-6">৳799</span>
+                                </div>
+                                <h4 class="card-title fw-bold text-white mb-3">10. Electrical Circuit Analysis I</h4>
+                                <p class="text-white-50 small mb-3">Ohm's Law, KVL, KCL, Nodal/Mesh Analysis, Thevenin & Norton Theorems.</p>
+                            </div>
+                            <a href="https://forms.gle/Ad2phm1ivkon5tiu9" target="_blank" class="btn btn-outline-warning w-100 rounded-pill fw-bold shine-btn">Enroll Now (৳799)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4" data-aos="slide-up" data-aos-delay="150">
+                    <div class="card glass-card course-card course-theme-circuit2 h-100 p-3">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="badge bg-primary fw-bold px-3 py-1 rounded-pill">EEE</span>
+                                    <span class="badge bg-warning text-dark fw-bold fs-6">৳799</span>
+                                </div>
+                                <h4 class="card-title fw-bold text-white mb-3">11. Electrical Circuit Analysis II</h4>
+                                <p class="text-white-50 small mb-3">AC Circuits, Phasors, Impedance, Resonance, Transformers & Three-Phase Systems.</p>
+                            </div>
+                            <a href="https://forms.gle/Ad2phm1ivkon5tiu9" target="_blank" class="btn btn-outline-primary w-100 rounded-pill fw-bold shine-btn">Enroll Now (৳799)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4" data-aos="slide-up" data-aos-delay="200">
+                    <div class="card glass-card course-card course-theme-diff-int h-100 p-3">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="badge bg-success fw-bold px-3 py-1 rounded-pill">Advanced Math</span>
+                                    <span class="badge bg-warning text-dark fw-bold fs-6">৳799</span>
+                                </div>
+                                <h4 class="card-title fw-bold text-white mb-3">12. Differential & Integral Calculus</h4>
+                                <p class="text-white-50 small mb-3">Limits, Continuity, Differentiation, Partial Derivatives, Integration & Applications.</p>
+                            </div>
+                            <a href="https://forms.gle/Ad2phm1ivkon5tiu9" target="_blank" class="btn btn-outline-success w-100 rounded-pill fw-bold shine-btn">Enroll Now (৳799)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 mx-auto" data-aos="slide-up" data-aos-delay="250">
+                    <div class="card glass-card course-card course-theme-ode-pde h-100 p-3">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="badge bg-danger fw-bold px-3 py-1 rounded-pill">Mathematics</span>
+                                    <span class="badge bg-warning text-dark fw-bold fs-6">৳799</span>
+                                </div>
+                                <h4 class="card-title fw-bold text-white mb-3">13. Ordinary & Partial Differential Equations</h4>
+                                <p class="text-white-50 small mb-3">First & Higher Order ODEs, Laplace Transforms, Series Solutions & PDEs.</p>
+                            </div>
+                            <a href="https://forms.gle/Ad2phm1ivkon5tiu9" target="_blank" class="btn btn-outline-danger w-100 rounded-pill fw-bold shine-btn">Enroll Now (৳799)</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="payment-steps" class="py-5 text-white bg-black bg-opacity-50">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="badge bg-success text-white px-3 py-2 rounded-pill fs-6 fw-bold mb-2">Easy Admission Process</span>
+                <h2 class="fw-bold display-5 text-gradient">How to Pay & Enroll</h2>
+                <p class="text-white-50 fs-6">বিকাশ, নগদ বা রকেট এর মাধ্যমে খুব সহজেই পেমেন্ট সম্পন্ন করো</p>
+                <div class="heading-line mx-auto"></div>
+            </div>
+
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="glass-card p-4 p-md-5 border-start border-4 border-warning">
+                        <h4 class="fw-bold text-warning mb-4"><i class="bi bi-wallet-fill me-2"></i> Payment Merchant / Personal Number</h4>
+                        <div class="p-3 bg-dark border border-info rounded-3 mb-4 text-center">
+                            <span class="d-block text-white-50 small mb-1">bKash / Nagad / Rocket (Send Money / Cash In)</span>
+                            <h2 class="text-info fw-bold mb-0">01798-509723</h2>
+                            <small class="text-success fw-bold">Active 24/7 (Personal / Send Money)</small>
+                        </div>
+                        <h5 class="fw-bold text-white mb-3">ভর্তি প্রক্রিয়া:</h5>
+                        <ol class="text-white-50 ps-3 lh-lg mb-0">
+                            <li>উপরে উল্লেখিত নম্বরে কোর্স ফি <strong class="text-warning">৳799</strong> Send Money করো।</li>
+                            <li>Transaction ID (TrxID) ভালো করে সংগ্রহে রাখো।</li>
+                            <li>নিচের Google Form-এ গিয়ে তোমার নাম, ভার্সিটি, ডিপার্টমেন্ট ও TrxID সাবমিট করো।</li>
+                            <li>সাথে সাথে আমাদের WhatsApp গ্রুপে যুক্ত হয়ে যাও!</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center" data-aos="fade-left">
+                    <div class="glass-card p-5">
+                        <i class="bi bi-shield-check text-success display-1 mb-3"></i>
+                        <h3 class="fw-bold text-white mb-3">Ready to Join?</h3>
+                        <p class="text-white-50 mb-4">ফর্ম পূরণ করার সাথে সাথেই আমাদের পেড ব্যাচের এক্সেস এবং ফেসবুক/হোয়াটসঅ্যাপ প্রাইভেট গ্রুপ লিংক পেয়ে যাবে।</p>
+                        <a href="https://forms.gle/Ad2phm1ivkon5tiu9" target="_blank" class="btn btn-glow btn-lg px-5 rounded-pill fw-bold shine-btn">
+                            <i class="bi bi-arrow-right-circle-fill me-2"></i> Fill Up Google Form Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="youtube-section" class="py-5 text-white">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="badge bg-danger text-white px-3 py-2 rounded-pill fs-6 fw-bold mb-2">Video Content</span>
+                <h2 class="fw-bold display-5 text-gradient">Our YouTube Channel</h2>
+                <p class="text-white-50 fs-6">আমাদের টিচিং স্টাইল ও লেকচার পেতে ইউটিউব চ্যানেল ঘুরে আসো</p>
+                <div class="heading-line mx-auto"></div>
+            </div>
+
+            <div class="row justify-content-center" data-aos="zoom-in">
+                <div class="col-lg-8 text-center">
+                    <div class="yt-channel-card glass-card">
+                        <i class="bi bi-youtube text-danger display-1 mb-3 d-block"></i>
+                        <h3 class="fw-bold text-white mb-3">Visit Jarif's Classroom YouTube Channel</h3>
+                        <p class="text-white-50 mb-4 fs-6">ফ্রি টিউটোরিয়াল, একাডেমিক স্ট্র্যাটেজি এবং ম্যাথ সলিউশন লেকচারগুলো দেখতে আমাদের ইউটিউব চ্যানেলে যুক্ত হও।</p>
+                        <a href="https://youtu.be/Lq3AjSM87Fo" target="_blank" class="btn btn-danger btn-lg px-5 rounded-pill fw-bold shine-btn">
+                            <i class="bi bi-play-circle-fill me-2"></i> Watch Our YouTube Video
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="py-5 text-white bg-black bg-opacity-75">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="badge bg-info text-dark px-3 py-2 rounded-pill fs-6 fw-bold mb-2">Student Reviews</span>
+                <h2 class="fw-bold display-5 text-gradient">Success Stories</h2>
+                <p class="text-white-50 fs-6">আমাদের শিক্ষার্থীদের মুখেই শুনুন তাদের সাফল্যের গল্প</p>
+                <div class="heading-line mx-auto"></div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass-card p-4 h-100">
+                        <div class="text-warning mb-3">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="text-white-50 mb-3">"Jarif sir-এর C programming & Math ক্লাসগুলো করার পর আমার ভার্সিটি এক্সামের ভয় সম্পূর্ণ কেটে গেছে। Explanations গুলো দুর্দান্ত!"</p>
+                        <h6 class="fw-bold text-white mb-0">— Tanvir Ahmed</h6>
+                        <small class="text-info">CSE Student, DIU</small>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="glass-card p-4 h-100">
+                        <div class="text-warning mb-3">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="text-white-50 mb-3">"All Semester এর সবগুলো কঠিন সাবজেক্ট খুব সহজভাবে সাজিয়ে পিডিএফ নোটস ও সাজেশন দেওয়া হয়। Highly recommended!"</p>
+                        <h6 class="fw-bold text-white mb-0">— Nusrat Jahan</h6>
+                        <small class="text-info">EEE Student, BUET / KUET</small>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="glass-card p-4 h-100">
+                        <div class="text-warning mb-3">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="text-white-50 mb-3">"৳799 টাকায় এমন প্রিমিয়াম কোয়ালিটি মেন্টরশিপ আর কোথাও পাওয়া যায় না। Jarif Sir-এর ২৪/৭ গাইডলাইন সেরা।"</p>
+                        <h6 class="fw-bold text-white mb-0">— Rakibul Islam</h6>
+                        <small class="text-info">SWE Student, BracU</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="routine" class="py-5 text-white">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fs-6 fw-bold mb-2">Class Schedule</span>
+                <h2 class="fw-bold display-5 text-gradient">All Semester Batch Routine</h2>
+                <p class="text-white-50 fs-6">ক্লাস শিডিউল ও লাইভ টাইমিং</p>
+                <div class="heading-line mx-auto"></div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-10" data-aos="zoom-in">
+                    <div class="glass-card p-4 p-md-5">
+                        <div class="table-responsive">
+                            <table class="table table-dark table-hover align-middle mb-0 bg-transparent">
+                                <thead>
+                                    <tr class="text-info">
+                                        <th>Days</th>
+                                        <th>Time (BST)</th>
+                                        <th>Subject / Course</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-white-50">
+                                    <tr>
+                                        <td class="text-white fw-bold">Saturday & Monday</td>
+                                        <td>8:00 PM - 10:00 PM</td>
+                                        <td class="text-warning">C / DSA / Algorithm</td>
+                                        <td><span class="badge bg-success">Active Batch</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-white fw-bold">Sunday & Tuesday</td>
+                                        <td>8:00 PM - 10:00 PM</td>
+                                        <td class="text-warning">Math 101, Math 102 & Linear Algebra</td>
+                                        <td><span class="badge bg-success">Active Batch</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-white fw-bold">Wednesday & Thursday</td>
+                                        <td>8:00 PM - 10:00 PM</td>
+                                        <td class="text-warning">Physics & Electrical Circuit Analysis</td>
+                                        <td><span class="badge bg-success">Active Batch</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-white fw-bold">Friday</td>
+                                        <td>As per notice</td>
+                                        <td class="text-warning">Problem Solving & Q&A Mentorship Session</td>
+                                        <td><span class="badge bg-info text-dark">VIP Session</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-4 border-top border-secondary text-center text-white-50 bg-black">
+        <div class="container">
+            <div class="d-flex justify-content-center align-items-center mb-3">
+                <img src="Jarifs classroom.jpg" alt="Logo" class="rounded-circle me-2 border border-info" width="35" height="35">
+                <span class="text-white fw-bold fs-5">Jarif's Classroom</span>
+            </div>
+            <p class="small mb-2">Complete Academic Preparation Platform for University & Engineering Students.</p>
+            <p class="small mb-0">&copy; 2026 Jarif's Classroom. All Rights Reserved. | Founder: Md. Jafrul Islam Jarif</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/8801798509723" target="_blank" class="floating-wa" title="Chat on WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+    
+    <button id="backToTop" class="btn btn-info rounded-circle shadow-lg text-dark fw-bold d-flex align-items-center justify-content-center">
+        <i class="bi bi-arrow-up fs-5"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Fast Initializations
+        document.addEventListener("DOMContentLoaded", function() {
+            AOS.init({
+                duration: 600,
+                once: true
+            });
+        });
+
+        // Page Loader Hide Fast
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('loader');
+            loader.style.opacity = '0';
+            setTimeout(() => loader.style.display = 'none', 300);
+        });
+
+        // Scroll Progress Bar & Back to Top with Throttle Optimization
+        let isScrolling = false;
+        window.addEventListener('scroll', function() {
+            if (!isScrolling) {
+                window.requestAnimationFrame(function() {
+                    let winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+                    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    let scrolled = (winScroll / height) * 100;
+                    document.getElementById('scroll-progress').style.width = scrolled + '%';
+
+                    let backToTopBtn = document.getElementById('backToTop');
+                    if (winScroll > 300) {
+                        backToTopBtn.style.display = 'flex';
+                    } else {
+                        backToTopBtn.style.display = 'none';
+                    }
+                    isScrolling = false;
+                });
+                isScrolling = true;
+            }
+        });
+
+        // Back to Top Click Action
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Optimized 3D Tilt Effect on Cards for Smooth UI Performance
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 25;
+                const rotateY = (centerX - x) / 25;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+            });
+        });
+    </script>
+</body>
+</html>
